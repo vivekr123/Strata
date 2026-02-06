@@ -96,7 +96,6 @@ private def DDM.Int.ofDDM : DDM.Int α → _root_.Int
 | .natInt _ ⟨_, n⟩ => .ofNat n
 | .negSuccInt _ ⟨_, n⟩ => .negSucc n
 
-
 mutual
 
 private def SpecAtomType.toDDM (d : SpecAtomType) : DDM.SpecType SourceRange :=
@@ -136,7 +135,6 @@ decreasing_by
   }
 
 end
-
 
 private def Arg.toDDM (d : Arg) : DDM.ArgDecl SourceRange :=
   .mkArgDecl .none ⟨.none, d.name⟩ d.type.toDDM ⟨.none, d.hasDefault⟩
@@ -275,7 +273,6 @@ def toDDMProgram (sigs : Array Signature) : Strata.Program := {
 def writeDDM (path : System.FilePath) (sigs : Array Signature) : IO Unit := do
   let pgm := toDDMProgram sigs
   IO.FS.writeBinFile path <| pgm.toIon
-
 
 end Strata.Python.Specs
 end
